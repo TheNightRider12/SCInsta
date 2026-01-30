@@ -97,10 +97,11 @@ jobs:
                 pip install --force-reinstall https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
                 
                 cd main
+                curl -Lo ipapatch https://github.com/asdfzxcvbn/ipapatch/releases/download/v2.1.3/ipapatch.macos-arm64
+                chmod +x ipapatch
                 ls -la
 
                 ./build.sh sideload
-
                 ls -la packages
                 
               env:
@@ -123,3 +124,14 @@ jobs:
                 name: SCInsta_sideloaded_v${{ steps.scinsta_version.outputs.version }}
                 path: ${{ github.workspace }}/main/packages/${{ steps.package_name.outputs.package }}
                 if-no-files-found: error
+
+            - name: Create Release
+              uses: softprops/action-gh-release@v2.0.6
+              with:
+                name: SCInsta_sideloaded_v${{ steps.scinsta_version.outputs.version }}
+                files: ${{ github.workspace }}/main/packages/SCInsta_sideloaded_v*.ipa
+                draft: true
+
+            - name: Output Release URL
+              run: |
+                echo "::notice::Release available at: https://github.com/${{ github.repository }}/releases"
