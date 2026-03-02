@@ -29,6 +29,7 @@ A feature-rich tweak for Instagram on iOS!\
 - Use detailed (native) color picker
 - Enable liquid glass buttons
 - Enable teen app icons
+- Disable app haptics
 - IG Notes:
   - Hide notes tray
   - Hide friends map
