@@ -401,7 +401,7 @@ sponsoredSupportConfiguration:(id)supportConfig
     NSLog(@"[SCInsta] Hiding meta ai: ai images add to story suggestion");
 
     if ([SCIUtils getBoolPref:@"hide_meta_ai"]) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"NOT (SELF IN %@)", @[ @(10), @(11) ]];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"NOT (SELF IN %@)", @[ @(9), @(10), @(11) ]];
         newTools = [tools filteredArrayUsingPredicate:predicate];
     }
 
