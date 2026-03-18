@@ -120,14 +120,14 @@ jobs:
 
             - name: Upload Artifact
               if: ${{ inputs.upload_artifact }}
-              uses: actions/upload-artifact@v5
+              uses: actions/upload-artifact@v6
               with:
                 name: SCInsta_sideloaded_v${{ steps.scinsta_version.outputs.version }}
                 path: ${{ github.workspace }}/main/packages/${{ steps.package_name.outputs.package }}
                 if-no-files-found: error
 
             - name: Create Release
-              uses: softprops/action-gh-release@v2.6.1
+              uses: softprops/action-gh-release@v2
               with:
                 name: SCInsta_sideloaded_v${{ steps.scinsta_version.outputs.version }}
                 files: ${{ github.workspace }}/main/packages/SCInsta_sideloaded_v*.ipa
