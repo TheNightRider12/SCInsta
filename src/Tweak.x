@@ -18,7 +18,7 @@ NSString *SCIVersionString = @"v1.2.0-dev";
 // Variables that work across features
 BOOL dmVisualMsgsViewedButtonEnabled = false;
 
-// Tweak first-time setup
+// MARK: Tweak first-time setup
 %hook IGInstagramAppDelegate
 - (_Bool)application:(UIApplication *)application willFinishLaunchingWithOptions:(id)arg2 {
     // Default SCInsta config
@@ -93,6 +93,8 @@ BOOL dmVisualMsgsViewedButtonEnabled = false;
 }
 %end
 
+// MARK: Liquid glass
+
 %hook IGDSLauncherConfig
 - (_Bool)isLiquidGlassInAppNotificationEnabled {
     return [SCIUtils liquidGlassEnabledBool:%orig];
@@ -110,6 +112,8 @@ BOOL dmVisualMsgsViewedButtonEnabled = false;
     return [SCIUtils liquidGlassEnabledBool:%orig];
 }
 %end
+
+// MARK: Bug reports
 
 // Disable sending modded insta bug reports
 %hook IGWindow
@@ -129,6 +133,8 @@ shouldPersistLastBugReportId:(id)arg6
     return nil;
 }
 %end
+
+// MARK: Screenshots
 
 // Disable anti-screenshot feature on visual messages
 %hook IGStoryViewerContainerView
@@ -190,7 +196,7 @@ shouldPersistLastBugReportId:(id)arg6
 
 /////////////////////////////////////////////////////////////////////////////
 
-// Hide items
+// MARK: Hide items
 
 // Direct suggested chats (in search bar)
 BOOL showSearchSectionLabelForTag(NSInteger tag) {
@@ -600,7 +606,7 @@ BOOL showSearchSectionLabelForTag(NSInteger tag) {
 
 /////////////////////////////////////////////////////////////////////////////
 
-// Confirm buttons
+// MARK: Confirm buttons
 
 %hook IGFeedItemUFICell
 - (void)UFIButtonBarDidTapOnLike:(id)arg1 {
