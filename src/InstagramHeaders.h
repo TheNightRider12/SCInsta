@@ -287,6 +287,9 @@
 - (void)handleLongPress:(UILongPressGestureRecognizer *)gr; // new
 @end
 
+@interface IGHomeFeedHeaderView : UIView
+@end
+
 @interface IGHomeFeedHeaderViewController
 - (void)headerDidLongPressLogo:(id)arg1;
 @end

@@ -85,6 +85,7 @@ A feature-rich tweak for Instagram on iOS!\
 - Hiding tabs
   - Hide feed tab
   - Hide explore tab
+  - Hide messages tab
   - Hide reels tab
   - Hide create tab
 
